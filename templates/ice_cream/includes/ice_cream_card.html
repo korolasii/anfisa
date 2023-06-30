@@ -8,14 +8,22 @@
   <div class="card h-100">
     <!-- card-img-top: изображение размещается вверху карточки -->
     <!--img-fluid: размер изображения подстроится под занимаемый блок -->
-    {% if ice_cream.image %}
-      <img class="card-img-top img-fluid" src="{{ ice_cream.image.url }}" alt="">
+    {% if ice_cream.main_image %}
+      <img src = " {{ ice_cream.main_image.image_thumbnail.url }} " alt="{{ ice_cream.name }}" class="img-thumbnail">
     {% else %}
-      <img class="img-fluid img-thumbnail" src="{% static 'img/tmb.png' %}" alt="">
+      <img src="{% static 'img/tmb.png' %}" alt="{{ ice_cream.name }}" class="img-thumbnail">
     {% endif %}
     <!-- card-body: текстовый контент карточки -->
     <div class="card-body">
       <h5>{{ ice_cream.name }}</h5>
+    </div>
+    <div class="d-flex justify-content-between px-3 py-2">
+      <div class="">
+        {{ ice_cream.price }} грн
+      </div>
+      <div class="">
+        {{ ice_cream.quantity }} шт.
+      </div>
     </div>
     <!-- btn: показывает что это кнопка  -->
     <!-- btn-success: определяет цвет кнопки --> 

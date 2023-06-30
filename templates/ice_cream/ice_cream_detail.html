@@ -21,6 +21,18 @@
     <div class="col-12 col-md-7 col-xl-9">
       <h1>{{ ice_cream.name }}</h1>
       <p>{{ ice_cream.description }}</p>
+      <div class="">
+        <div class="">
+          В наличии: {{ ice_cream.quantity }}шт.
+        </div>
+        <div class="">
+          Цена: {{ ice_cream.price }}грн
+        </div>
+        <form action="">
+            <input type="number" min="1" step="1" max="100" value="1" class="form-control my-2">
+            <button class="btn btn-success" type="button" id="button-addon1"><i class="fas fa-shopping-cart"></i> В корзину</button>
+        </form>
+      </div>
     </div>
   </div>
 </div> 
