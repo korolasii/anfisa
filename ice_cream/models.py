@@ -91,13 +91,12 @@ class IceCream(models.Model):
     
     def main_image(self):
         image = Image.objects.filter(product=self.id, is_main=True)
-        print(image)
         if image:
-            return image
-        return self.images().first()
+            return image.first()
+        return Image.objects.filter(product=self.id).first()
     
     def get_absolute_url(self):
-        return reverse('product', kwargs={'pk': self.id})
+        return reverse('ice_cream_detail', kwargs={'pk': self.id})
     
     
 class Image(models.Model):

@@ -16,9 +16,13 @@ Including another URLconf
 from django.contrib import admin
 # импорт include позволит использовать адреса, включенные в приложения
 from django.urls import include, path 
+from django.conf.urls.static import static
+from django.conf import settings
+from comment.urls import urlpatterns as comment_url
 
 urlpatterns = [    
     # Сначала проверяем все пути, которые есть в приложении ice_cream
     path('', include('ice_cream.urls', namespace='ice_cream')),
     path('admin/', admin.site.urls),
-]
+    path('comment/', include(comment_url))
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

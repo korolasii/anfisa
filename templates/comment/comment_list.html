@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div>
+        <a class="btn btn-primary " href="{% url 'create_comment' %}">Create</a>
+    </div>
+    <div>
+        {% for comment in comments %}
+            <p>{{comment.content}}</p>
+            <p><strong>Ім'я:</strong> {{comment.name}}</p>
+            <p><strong>Дата публикації:</strong> {{comment.created_at}}</p>
+            <hr>
+        {% empty %}
+            <p>Коментарів немає</p>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -9,7 +9,7 @@
     <!-- card-img-top: изображение размещается вверху карточки -->
     <!--img-fluid: размер изображения подстроится под занимаемый блок -->
     {% if ice_cream.main_image %}
-      <img src = " {{ ice_cream.main_image.image_thumbnail.url }} " alt="{{ ice_cream.name }}" class="img-thumbnail">
+      <img src="{{ ice_cream.main_image.image_thumbnail.url}}" alt="{{ ice_cream.name }}" class="img-thumbnail">
     {% else %}
       <img src="{% static 'img/tmb.png' %}" alt="{{ ice_cream.name }}" class="img-thumbnail">
     {% endif %}
